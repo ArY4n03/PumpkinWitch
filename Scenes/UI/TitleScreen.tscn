@@ -1,0 +1,110 @@
+[gd_scene load_steps=10 format=3 uid="uid://cjqpspaauok8i"]
+
+[ext_resource type="Script" path="res://Scenes/UI/title_screen.gd" id="1_4to2h"]
+[ext_resource type="Texture2D" uid="uid://bg7m5ittmu8yh" path="res://Sprites/background.png" id="1_lxkfb"]
+[ext_resource type="Texture2D" uid="uid://d156kko2a7k7i" path="res://Sprites/leaderboard btn.png" id="2_s5ikt"]
+[ext_resource type="Texture2D" uid="uid://34xewyucjk0w" path="res://Sprites/play btn.png" id="3_gdpwx"]
+[ext_resource type="Texture2D" uid="uid://ckpo0c87j4ju3" path="res://Sprites/leaderboard btn(hover).png" id="4_fatqk"]
+[ext_resource type="FontFile" uid="uid://dikxqyvxb6qei" path="res://fonts/VT323-Regular.ttf" id="4_uf48l"]
+[ext_resource type="Texture2D" uid="uid://dst7yvl58ubj7" path="res://Sprites/play btn(hover).png" id="5_lx4jv"]
+[ext_resource type="Texture2D" uid="uid://c3oha187q82qn" path="res://Sprites/popup bg.png" id="8_5djcb"]
+
+[sub_resource type="FontVariation" id="FontVariation_tsav7"]
+base_font = ExtResource("4_uf48l")
+
+[node name="Title Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4to2h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-119, -43)
+texture = ExtResource("1_lxkfb")
+centered = false
+
+[node name="Ttile" type="Label" parent="."]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 168.0
+offset_right = 1035.0
+offset_bottom = 318.0
+theme_override_colors/font_color = Color(1, 0.333333, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_tsav7")
+theme_override_font_sizes/font_size = 150
+text = "PUMPKIN WITCH"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = 59.0
+offset_right = 116.0
+offset_bottom = 123.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Leaderboard" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_s5ikt")
+texture_hover = ExtResource("4_fatqk")
+
+[node name="Play" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_gdpwx")
+texture_hover = ExtResource("5_lx4jv")
+
+[node name="Credits" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -33.0
+offset_right = 78.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 0.0156863, 1)
+theme_override_fonts/font = ExtResource("4_uf48l")
+theme_override_font_sizes/font_size = 25
+text = "Credits
+"
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.729412)
+layout_mode = 0
+offset_left = -61.0
+offset_top = -52.0
+offset_right = 1234.0
+offset_bottom = 682.0
+texture = ExtResource("8_5djcb")
+stretch_mode = 1
+
+[node name="Popup" type="Popup" parent="."]
+transparent_bg = true
+title = "CREDITS"
+initial_position = 1
+size = Vector2i(596, 127)
+
+[node name="Credits" type="Label" parent="Popup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 1631.0
+offset_bottom = 596.0
+theme_override_colors/font_color = Color(1, 0.333333, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_tsav7")
+theme_override_font_sizes/font_size = 60
+text = "Created By Aryan Soy
+Sound from Zapsplat.com"
+
+[connection signal="button_up" from="HBoxContainer/Leaderboard" to="." method="_on_leaderboard_button_up"]
+[connection signal="button_up" from="HBoxContainer/Play" to="." method="_on_play_button_up"]
+[connection signal="button_up" from="Credits" to="." method="_on_credits_button_up"]

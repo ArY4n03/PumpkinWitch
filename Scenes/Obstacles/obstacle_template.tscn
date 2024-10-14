@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://7g54jo8twedx"]
+
+[ext_resource type="Script" path="res://Scenes/Obstacles/obstacle_template.gd" id="1_lu1kx"]
+[ext_resource type="Texture2D" uid="uid://c3kiriujntan7" path="res://Sprites/obstacle1.png" id="2_sq3yh"]
+
+[node name="Obstacle Template" type="StaticBody2D"]
+scale = Vector2(1.5, 1.5)
+collision_layer = 2
+script = ExtResource("1_lu1kx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_sq3yh")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://8412n6x1us0f"]
+
+[ext_resource type="PackedScene" uid="uid://dwwm5fpc2hgyr" path="res://Player/player.tscn" id="1_ds2mr"]
+[ext_resource type="Script" path="res://Scenes/Levels/level_template.gd" id="1_jak4x"]
+[ext_resource type="PackedScene" uid="uid://bbin75oe0jg3w" path="res://Scenes/Tilemap/Tilemap.tscn" id="2_jrawj"]
+
+[node name="LevelTemplate" type="Node2D"]
+script = ExtResource("1_jak4x")
+
+[node name="Player" parent="." instance=ExtResource("1_ds2mr")]
+
+[node name="TileMapLayer" parent="." instance=ExtResource("2_jrawj")]
+
+[node name="Breakable platform container" type="Node" parent="."]
+
+[node name="obstacles container" type="Node" parent="."]
+
+[node name="LevelRestartArea" type="Area2D" parent="."]
+collision_layer = 4
+
+[connection signal="body_entered" from="LevelRestartArea" to="." method="_on_level_restart_area_body_entered"]

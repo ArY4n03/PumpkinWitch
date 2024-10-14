@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://do0jexqvwbavq"]
+
+[ext_resource type="AudioStream" uid="uid://bsem372x2sjpa" path="res://Music/audio_hero_Yessir_SIPML_K-0329.mp3" id="1_w7cml"]
+
+[node name="Music_Scene" type="Node2D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_w7cml")
+autoplay = true
+parameters/looping = true
