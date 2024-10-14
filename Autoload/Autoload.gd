@@ -3,8 +3,8 @@ var fails = 0
 var just_started = true
 func _ready() -> void:
 	SilentWolf.configure({
-		"api_key": "gsC2ho3TcO2L5SDSwrw1T8y0XDySoTVU5xUP9bPd",
-		"game_id": "PumpkinWitch",
+		"api_key": "api key of game",
+		"game_id": "game id",
 		"log_level": 1
 		})
 	SilentWolf.configure_scores({
